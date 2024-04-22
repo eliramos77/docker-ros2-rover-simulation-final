@@ -26,3 +26,26 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 ```bash
 sudo docker run hello-world
 ```
+
+## Only ROS2 Environment
+
+Build the image:
+
+```
+docker build -t ros2_foxy:v1 -f <path_to_file>/ros2_foxy.Dockerfile .
+docker load
+```
+
+Run the container:
+
+```
+docker run -it --privileged --env=LOCAL_USER_ID="$(id -u)" -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY=:0 ros2_foxy:v1 bash
+```
+
+##  With PX4 Simulation
+
+Download the MicroXRCEAgent image from the following link: https://www.eprosima.com/index.php/component/ars/repository/eprosima-micro-xrce-dds/eprosima-micro-xrce-dds-2-4-2/ubuntu-xrcedds-suite-v2-4-2-tar-1?format=raw
+   and then load it with the following command using the name of the image:
+   ```
+   docker load -i <image_name>
+   ```
