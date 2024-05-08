@@ -32,8 +32,7 @@ sudo docker run hello-world
 Build the image:
 
 ```
-docker build -t ros2_foxy:v1 -f <path_to_file>/ros2_foxy.Dockerfile .
-docker load
+docker build -t ros2_foxy_rover:v1 -f <path_to_file>/ros2_foxy.Dockerfile .
 ```
 
 Run the container:
@@ -42,7 +41,7 @@ Run the container:
 docker run -it --privileged --env=LOCAL_USER_ID="$(id -u)" \
 -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
 -v "$(pwd)":/src/docker-ros2-rover-simulation \
--e DISPLAY=:0 ros2_foxy:v1 bash
+-e DISPLAY=:0 ros2_foxy_rover:v1 bash
 
 ```
 

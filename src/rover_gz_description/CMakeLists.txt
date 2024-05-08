@@ -18,7 +18,7 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 install(
-  DIRECTORY launch meshes urdf models
+  DIRECTORY launch meshes urdf models rviz
   DESTINATION share/${PROJECT_NAME}
 )
 find_package(urdf REQUIRED)
