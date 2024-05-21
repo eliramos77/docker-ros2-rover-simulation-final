@@ -27,7 +27,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo docker run hello-world
 ```
 
-## Only ROS2 Environment
+## ROS2 Environment
 
 Build the image:
 
@@ -35,13 +35,39 @@ Build the image:
 docker build -t ros2_foxy_rover:v1 -f <path_to_file>/ros2_foxy.Dockerfile .
 ```
 
-Run the container:
+Run the container in two terminals:
 
 ```
 docker run -it --privileged --env=LOCAL_USER_ID="$(id -u)" \
 -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
 -v "$(pwd)":/src/docker-ros2-rover-simulation \
 -e DISPLAY=:0 ros2_foxy_rover:v1 bash
-
 ```
 
+### Terminal 1
+
+```
+cd src/docker-ros2-rover-simulation/
+source install/setup.bash
+ros2 launch rover_gz_description gazebo.launch.py 
+```
+Note: if you have errors, firstly run display.launch.py, then gazebo, and lastly launch the gazebo simulation.
+
+### Terminal 2
+
+```
+cd src/docker-ros2-rover-simulation/
+source install/setup.bash
+ros2 run publisher_velocity publisher_cmd.py
+```
+Once these commands are running, the publisher will be publishing a linear velocity to the rover.
+
+## Final Workshop
+1. Fork my repository.
+2. Set up your Dockerfile to install the needed ROS2 control packages (any missing packages won't be installed via terminal).
+3. Create and set up your robot URDF file to perform your simulation.
+4. Add in the publisher node the message needed to publish the angular velocity to the cmd_vel topic.
+5. Create a README.md file to explain how your code works.
+6. Send me your repository via email.
+
+Lecturer: Javier Herrera
