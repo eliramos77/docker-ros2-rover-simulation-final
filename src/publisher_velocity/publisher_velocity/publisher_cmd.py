@@ -30,6 +30,12 @@ class PublisherCMD(Node):
         self.publisher_.publish(msg) # Publish the message to the '/cmd_vel' topic
         self.get_logger().info('Publishing: "%s"' % msg) # Log the published message
 
+        # Angular velocity
+        msg = Twist() 
+        msg.angular.x = 0.1
+        self.publisher_.publish(msg) 
+        self.get_logger().info('Publishing: "%s"' % msg)
+
 # Define the main function that will be executed when the script runs
 def main(args=None):
     

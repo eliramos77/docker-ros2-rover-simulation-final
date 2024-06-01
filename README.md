@@ -1,6 +1,7 @@
-# docker-px4-simulation
+## Procedure to execute the final Workshop
 
 ## Docker installation
+
 1. Before you install Docker Engine for the first time on a new host machine, you need to set up the Docker repository. Afterward, you can install and update Docker from the repository.
 ```
 # Add Docker's official GPG key:
@@ -27,6 +28,18 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo docker run hello-world
 ```
 
+## Fork
+
+1. Fork my repository (docker-ros2-rover-simulation-final)
+
+```
+git clone <SSH>
+```
+
+## URDF
+
+2. Create an URDF of a rover from any cad software (better Onshape)
+
 ## ROS2 Environment
 
 Build the image:
@@ -34,6 +47,8 @@ Build the image:
 ```
 docker build -t ros2_foxy_rover:v1 -f <path_to_file>/ros2_foxy.Dockerfile .
 ```
+
+## Open two terminals in Tilix
 
 Run the container in two terminals:
 
@@ -62,12 +77,6 @@ ros2 run publisher_velocity publisher_cmd.py
 ```
 Once these commands are running, the publisher will be publishing a linear velocity to the rover.
 
-## Final Workshop
-1. Fork my repository.
-2. Set up your Dockerfile to install the needed ROS2 control packages (any missing packages won't be installed via terminal).
-3. Create and set up your robot URDF file to perform your simulation.
-4. Add in the publisher node the message needed to publish the angular velocity to the cmd_vel topic.
-5. Create a README.md file to explain how your code works.
-6. Send me your repository via email.
+## Publish the angular or linear velocity.
 
-Lecturer: Javier Herrera
+4. Enter in the publisher node the message needed to publish the angular velocity or the linear velocity to the cmd_vel topic.

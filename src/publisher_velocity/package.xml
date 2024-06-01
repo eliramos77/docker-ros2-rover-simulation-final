@@ -3,15 +3,14 @@
 <package format="3">
   <name>publisher_velocity</name>
   <version>0.0.0</version>
-  <description>Publisher speed to cmd tpoic</description>
-  <maintainer email="javier.herrera@upb.edu.co">user</maintainer>
+  <description>TODO: Package description</description>
+  <maintainer email="user@todo.todo">user</maintainer>
   <license>TODO: License declaration</license>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
   <test_depend>python3-pytest</test_depend>
-
   <exec_depend>rover_gz_description</exec_depend>
 
   <export>
